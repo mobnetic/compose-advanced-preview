@@ -65,8 +65,8 @@ private fun SampleScreenPreview() {
 | <img src="/docs/Sample2AdvancedPreview.png" width="260"> | <img src="/docs/Sample2StandardPreview.png" width="260"> |
 
 #### [Sample3](/sample/src/main/java/com/mobnetic/compose/advancedpreview/sample/Sample3.kt) demonstrates:
-- Dark icons on StatusBar
-- Gesture Navigation
+- Light backround with dark icons on StatusBar and NavigationBar.
+- Gesture Navigation.
 
 | AdvancedPreview | Standard `@Preview` |
 |---|---|
