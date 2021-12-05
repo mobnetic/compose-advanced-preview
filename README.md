@@ -20,12 +20,12 @@ fun AdvancedPreview(
 ```
 
 #### Device
-- Configire screen size using `screenWidth: Dp` and `screenHeight: Dp`.
+- Configure screen size using `screenWidth: Dp` and `screenHeight: Dp`.
 - Choosing between navigation types using `navigationType` (`ThreeButtons` or `Gesture`).
 
 #### StatusBar / NavigationBar
 - Control background and icons color using `color: Color` and `darkIcons: Boolean`.
-- Draw content behind - allow it to be "edge-to-edge" using `overlaysContent: Boolean`.
+- Draw content behind (edge-to-edge) using `overlaysContent: Boolean` with build-in support for [Accompanist-inset](https://google.github.io/accompanist/insets/).
 
 #### Time
 - Customize time displayed on StatusBar (`hours: Int` and `minutes: Int`).
@@ -58,14 +58,14 @@ private fun SampleScreenPreview() {
 
 #### [Sample2](/sample/src/main/java/com/mobnetic/compose/advancedpreview/sample/Sample2.kt) demonstrates:
 - Translucent StatusBar and NavigationBar that overlay the screen's content.  
-- Screen content uses [accompanist-inset](https://google.github.io/accompanist/insets/) which works out of the box with `AdvancedPreview`.
+- Screen uses [Accompanist-inset](https://google.github.io/accompanist/insets/) which works out-of-the-box with `AdvancedPreview`.
 
 | AdvancedPreview | Standard `@Preview` |
 |---|---|
 | <img src="/docs/Sample2AdvancedPreview.png" width="260"> | <img src="/docs/Sample2StandardPreview.png" width="260"> |
 
 #### [Sample3](/sample/src/main/java/com/mobnetic/compose/advancedpreview/sample/Sample3.kt) demonstrates:
-- Light backround with dark icons on StatusBar and NavigationBar.
+- Light background with dark icons on StatusBar and NavigationBar.
 - Gesture Navigation.
 
 | AdvancedPreview | Standard `@Preview` |
