@@ -2,8 +2,9 @@
 Customisable Preview of system UI decoration for Jetpack Compose.  
 
 ### Use cases
-- Have better control over the Preview in Android Studio to make it look like in the real app.
-- Capture images of Composables in code but would like them to be decorated with system UI.
+- Want the Preview in Android Studio to look more like in real app on device.
+- Save preview output for marketing or documentation purposes.
+- You have automated capturing of Composables in code and would like them to be decorated with system UI.
 
 ## Documentation
 
