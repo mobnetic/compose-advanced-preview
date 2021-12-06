@@ -1,4 +1,6 @@
 # AdvancedPreview
+[![Release](https://jitpack.io/v/com.mobnetic/compose-advanced-preview.svg)](https://jitpack.io/#com.mobnetic/compose-advanced-preview)
+
 Customisable Preview of system UI decoration for Jetpack Compose.  
 
 ### Use cases
@@ -88,5 +90,13 @@ private fun SampleScreenPreview() {
 |---|---|
 | <img src="/docs/Sample3AdvancedPreview.png" width="260"> | <img src="/docs/Sample3StandardPreview.png" width="260"> |
 
-## Installation
-Coming soon…
+## Download
+```
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation "com.mobnetic:compose-advanced-preview:<version>"
+}
+```
