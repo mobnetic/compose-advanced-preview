@@ -5,7 +5,7 @@ Customisable Preview of system UI decoration for Jetpack Compose.
 - Have better control over the Preview in Android Studio to make it look like in the real app.
 - Capture images of Composables in code but would like them to be decorated with system UI.
 
-## Features
+## Documentation
 
 ```kotlin
 @Composable
@@ -20,20 +20,33 @@ fun AdvancedPreview(
 ```
 
 #### Device
-- Configure screen size using `screenWidth: Dp` and `screenHeight: Dp`.
-- Specify StatusBar height with `statusBarSize: Dp`.
-- Choosing between navigation types using `navigationType` (`ThreeButtons` or `Gesture`).
+| Property | Description |
+|---|---|
+| `screenWidth`<br/>`screenHeight` | Configure specific screen size.<br/>Default size is the same as `@Preview(showSystemUi = true)` |
+| `statusBarSize` | Specify custom StatusBar size. Default value is `24.dp` |
+| `navigationType` | Choose between navigation types: `NavigationType.ThreeButtons` or `NavigationType.Gesture` |
+
 
 #### StatusBar / NavigationBar
-- Control background and icons color using `color: Color` and `darkIcons: Boolean`.
-- Draw content behind (edge-to-edge) using `overlaysContent: Boolean` with build-in support for [Accompanist-inset](https://google.github.io/accompanist/insets/).
+| Property | Description |
+|---|---|
+| `color` | Control the background color |
+| `darkIcons` | Control whether icons are light of dark |
+| `overlaysContent` |  Draw content behind the bar, allowing for edge-to-edge content.<br/>There's a build-in support for [Accompanist-inset](https://google.github.io/accompanist/insets/). |
 
 #### Time
-- Customize time displayed on StatusBar (`hours: Int` and `minutes: Int`).
+| Property | Description |
+|---|---|
+| `hours` and `minutes`  |  Customize time displayed on StatusBar |
+
+#### ... other
+| Property | Description |
+|---|---|
+| `backgroundColor` | Specify background color for entire Preview |
 
 ## Usage
 Simply wrap your screen Composable with `AdvancedPreview`.  
-Any configuration should be done in `AdvancedPreview` instead of passing arguments to `@Preview` annotation.
+Configuration should be done in `AdvancedPreview` instead of passing arguments to `@Preview` annotation.
 
 ```kotlin
 @Preview
