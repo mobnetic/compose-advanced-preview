@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.mobnetic.compose.advancedpreview.AdvancedPreview
 import com.mobnetic.compose.advancedpreview.Device
 import com.mobnetic.compose.advancedpreview.NavigationBar
@@ -25,6 +26,7 @@ private fun Sample3AdvancedPreview() {
     MaterialTheme {
         AdvancedPreview(
             device = Device(
+                statusBarSize = 48.dp,
                 navigationType = NavigationType.Gesture()
             ),
             statusBar = StatusBar.default(
