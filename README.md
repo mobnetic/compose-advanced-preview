@@ -86,3 +86,6 @@ private fun SampleScreenPreview() {
 | AdvancedPreview | Standard `@Preview` |
 |---|---|
 | <img src="/docs/Sample3AdvancedPreview.png" width="260"> | <img src="/docs/Sample3StandardPreview.png" width="260"> |
+
+## Installation
+Coming soon…
