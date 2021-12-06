@@ -21,6 +21,7 @@ fun AdvancedPreview(
 
 #### Device
 - Configure screen size using `screenWidth: Dp` and `screenHeight: Dp`.
+- Specify StatusBar height with `statusBarSize: Dp`.
 - Choosing between navigation types using `navigationType` (`ThreeButtons` or `Gesture`).
 
 #### StatusBar / NavigationBar
@@ -66,6 +67,7 @@ private fun SampleScreenPreview() {
 
 #### [Sample3](/sample/src/main/java/com/mobnetic/compose/advancedpreview/sample/Sample3.kt) demonstrates:
 - Light background with dark icons on StatusBar and NavigationBar.
+- Tall StatusBar 
 - Gesture Navigation.
 
 | AdvancedPreview | Standard `@Preview` |
