@@ -15,10 +15,10 @@ import com.mobnetic.compose.advancedpreview.ui.StatusBarLayout
 @Composable
 fun AdvancedPreview(
     device: Device = Device(),
+    settings: Settings = Settings(),
     statusBar: StatusBar = StatusBar.default(),
     navigationBar: NavigationBar = NavigationBar.default(),
     backgroundColor: Color = MaterialTheme.colors.surface,
-    time: StatusBarTime = StatusBarTime.Default,
     content: @Composable () -> Unit
 ) {
     Box(
@@ -26,7 +26,7 @@ fun AdvancedPreview(
             .size(device.screenWidth, device.screenHeight)
             .background(backgroundColor)
     ) {
-        StatusBarLayout(device, statusBar, time)
+        StatusBarLayout(device, settings, statusBar)
 
         ContentLayout(device, statusBar, navigationBar, content)
 
