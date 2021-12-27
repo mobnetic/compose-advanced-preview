@@ -16,6 +16,7 @@ import com.mobnetic.compose.advancedpreview.AdvancedPreview
 import com.mobnetic.compose.advancedpreview.Device
 import com.mobnetic.compose.advancedpreview.NavigationBar
 import com.mobnetic.compose.advancedpreview.NavigationType
+import com.mobnetic.compose.advancedpreview.Settings
 import com.mobnetic.compose.advancedpreview.StatusBar
 import com.mobnetic.compose.advancedpreview.ui.CloseButton
 import com.mobnetic.compose.advancedpreview.ui.LoremIpsumText
@@ -27,6 +28,8 @@ private fun Sample3AdvancedPreview() {
         AdvancedPreview(
             device = Device(
                 statusBarSize = 48.dp,
+            ),
+            settings = Settings(
                 navigationType = NavigationType.Gesture()
             ),
             statusBar = StatusBar.default(

@@ -29,13 +29,13 @@ fun AdvancedPreview(
 | `statusBarSize` | Specify custom StatusBar size. Default value is `24.dp` |
 | `statusBarContentPadding` | Specify custom StatusBar inner padding. Default value is `PaddingValues(start = 8.dp, end = 4.dp)` |
 | `displayCutout` | Currently only "O-shaped" cutout is supported. You can customize size, margins and position |
-| `navigationType` | Choose between navigation types: `NavigationType.ThreeButtons` or `NavigationType.Gesture` |
 
 #### Settings
 | Property | Description |
 |---|---|
 | `time` | Customize time displayed on StatusBar by providing `hours` and `minutes`. Default value is `StatusBarTime(hours = 12, minutes = 0)` |
 | `showDisplayCutoutDecoration` | Specify whether to draw the black mask as display cutout decoration |
+| `navigationType` | Choose between navigation types: `NavigationType.ThreeButtons` or `NavigationType.Gesture` |
 
 #### StatusBar / NavigationBar
 | Property | Description |
