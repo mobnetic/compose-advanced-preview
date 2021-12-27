@@ -17,17 +17,23 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 import com.mobnetic.compose.advancedpreview.AdvancedPreview
+import com.mobnetic.compose.advancedpreview.Devices
 import com.mobnetic.compose.advancedpreview.NavigationBar
+import com.mobnetic.compose.advancedpreview.Settings
 import com.mobnetic.compose.advancedpreview.StatusBar
 import com.mobnetic.compose.advancedpreview.ui.CloseButton
 import com.mobnetic.compose.advancedpreview.ui.LoremIpsumText
 
-@Preview
+@Preview(widthDp = Devices.Pixel6.widthDp, heightDp = Devices.Pixel6.heightDp)
 @Composable
 private fun Sample2AdvancedPreview() {
     val systemBarsColor = Color.Black.copy(alpha = 0.3f)
     MaterialTheme {
         AdvancedPreview(
+            device = Devices.Pixel6(),
+            settings = Settings(
+                showDisplayCutoutDecoration = true
+            ),
             statusBar = StatusBar.default(
                 color = systemBarsColor,
                 overlaysContent = true

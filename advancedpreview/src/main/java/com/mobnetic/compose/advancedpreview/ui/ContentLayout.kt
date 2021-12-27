@@ -9,22 +9,24 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.mobnetic.compose.advancedpreview.Device
 import com.mobnetic.compose.advancedpreview.NavigationBar
+import com.mobnetic.compose.advancedpreview.Settings
 import com.mobnetic.compose.advancedpreview.StatusBar
 import com.mobnetic.compose.advancedpreview.SystemBar
 
 @Composable
 internal fun ContentLayout(
     device: Device,
+    settings: Settings,
     statusBar: StatusBar,
     navigationBar: NavigationBar,
     content: @Composable () -> Unit
 ) {
     val contentPadding = PaddingValues(
         top = statusBar.getContentPadding(device.statusBarSize),
-        bottom = navigationBar.getContentPadding(device.navigationType.size)
+        bottom = navigationBar.getContentPadding(settings.navigationType.size)
     )
     Box(modifier = Modifier.padding(contentPadding)) {
-        ProvideWindowInsets(device, content = content)
+        ProvideWindowInsets(device, settings, content = content)
     }
 }
 

@@ -21,7 +21,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.mobnetic.compose.advancedpreview.Device
 import com.mobnetic.compose.advancedpreview.NavigationBar
 import com.mobnetic.compose.advancedpreview.NavigationType
 import com.mobnetic.compose.advancedpreview.NavigationType.Gesture
@@ -30,7 +29,7 @@ import com.mobnetic.compose.advancedpreview.R
 
 @Composable
 internal fun NavigationBarLayout(
-    device: Device,
+    navigationType: NavigationType,
     navigationBar: NavigationBar,
     modifier: Modifier
 ) {
@@ -39,13 +38,13 @@ internal fun NavigationBarLayout(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
-            .height(device.navigationType.size)
+            .height(navigationType.size)
             .background(navigationBar.color)
             .padding(horizontal = PaddingHorizontal)
             .zIndex(100f)
     ) {
         SystemBarContent(navigationBar) {
-            device.navigationType.Content()
+            navigationType.Content()
         }
     }
 }

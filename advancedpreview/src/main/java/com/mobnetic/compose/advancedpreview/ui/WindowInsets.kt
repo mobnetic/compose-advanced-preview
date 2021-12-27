@@ -8,21 +8,29 @@ import com.google.accompanist.insets.Insets.Companion.Insets
 import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.WindowInsets
 import com.mobnetic.compose.advancedpreview.Device
+import com.mobnetic.compose.advancedpreview.Settings
 
 @Composable
-internal fun ProvideWindowInsets(device: Device, content: @Composable () -> Unit) {
-    val insets = calculateWindowInsets(device)
+internal fun ProvideWindowInsets(
+    device: Device,
+    settings: Settings,
+    content: @Composable () -> Unit
+) {
+    val insets = calculateWindowInsets(device, settings)
     CompositionLocalProvider(LocalWindowInsets provides insets, content = content)
 }
 
 @Composable
-private fun calculateWindowInsets(device: Device) = with(LocalDensity.current) {
+private fun calculateWindowInsets(
+    device: Device,
+    settings: Settings,
+) = with(LocalDensity.current) {
     WindowInsets.Empty.copy(
         statusBars = StaticWindowInsetsType(
             Insets(top = device.statusBarSize.roundToPx())
         ),
         navigationBars = StaticWindowInsetsType(
-            Insets(bottom = device.navigationType.size.roundToPx())
+            Insets(bottom = settings.navigationType.size.roundToPx())
         )
     )
 }

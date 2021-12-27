@@ -28,10 +28,10 @@ fun AdvancedPreview(
     ) {
         StatusBarLayout(device, settings, statusBar)
 
-        ContentLayout(device, statusBar, navigationBar, content)
+        ContentLayout(device, settings, statusBar, navigationBar, content)
 
         NavigationBarLayout(
-            device,
+            settings.navigationType,
             navigationBar,
             modifier = Modifier.align(Alignment.BottomCenter)
         )
