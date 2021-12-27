@@ -14,10 +14,10 @@ Customisable Preview of system UI decoration for Jetpack Compose.
 @Composable
 fun AdvancedPreview(
     device: Device,
+    settings: Settings,
     statusBar: StatusBar,
     navigationBar: NavigationBar,
     backgroundColor: Color,
-    time: StatusBarTime,
     content: @Composable () -> Unit
 )
 ```
@@ -27,8 +27,15 @@ fun AdvancedPreview(
 |---|---|
 | `screenWidth`<br/>`screenHeight` | Configure specific screen size.<br/>Default size is the same as `@Preview(showSystemUi = true)` |
 | `statusBarSize` | Specify custom StatusBar size. Default value is `24.dp` |
+| `statusBarContentPadding` | Specify custom StatusBar inner padding. Default value is `PaddingValues(start = 8.dp, end = 4.dp)` |
+| `displayCutout` | Currently only "O-shaped" cutout is supported. You can customize size, margins and position |
 | `navigationType` | Choose between navigation types: `NavigationType.ThreeButtons` or `NavigationType.Gesture` |
 
+#### Settings
+| Property | Description |
+|---|---|
+| `time` | Customize time displayed on StatusBar by providing `hours` and `minutes`. Default value is `StatusBarTime(hours = 12, minutes = 0)` |
+| `showDisplayCutoutDecoration` | Specify whether to draw the black mask as display cutout decoration |
 
 #### StatusBar / NavigationBar
 | Property | Description |
@@ -36,11 +43,6 @@ fun AdvancedPreview(
 | `color` | Control the background color |
 | `darkIcons` | Control whether icons are light of dark |
 | `overlaysContent` |  Draw content behind the bar, allowing for edge-to-edge content.<br/>There's a build-in support for [Accompanist-inset](https://google.github.io/accompanist/insets/). |
-
-#### Time
-| Property | Description |
-|---|---|
-| `hours` and `minutes`  |  Customize time displayed on StatusBar |
 
 #### ... other
 | Property | Description |
