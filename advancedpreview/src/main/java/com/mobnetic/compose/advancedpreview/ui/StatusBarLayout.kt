@@ -3,7 +3,10 @@ package com.mobnetic.compose.advancedpreview.ui
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.absolutePadding
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -21,29 +24,42 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.mobnetic.compose.advancedpreview.Device
+import com.mobnetic.compose.advancedpreview.DisplayCutout
+import com.mobnetic.compose.advancedpreview.DisplayCutout.Position
 import com.mobnetic.compose.advancedpreview.R
+import com.mobnetic.compose.advancedpreview.Settings
 import com.mobnetic.compose.advancedpreview.StatusBar
 import com.mobnetic.compose.advancedpreview.StatusBarTime
 
 @Composable
 internal fun StatusBarLayout(
     device: Device,
+    settings: Settings,
     statusBar: StatusBar,
-    time: StatusBarTime,
 ) {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(IconsHorizontalSpace),
-        verticalAlignment = Alignment.CenterVertically,
+    Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(device.statusBarSize)
             .background(statusBar.color)
             .zIndex(100f)
-            .padding(start = PaddingStart, end = PaddingEnd)
     ) {
-        SystemBarContent(statusBar) {
-            StatusBarClock(time, modifier = Modifier.weight(1f))
-            StatusBarIcons()
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(space = IconsHorizontalSpace),
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxSize()
+                .displayCutoutPadding(device.displayCutout)
+                .padding(device.statusBarContentPadding),
+        ) {
+            SystemBarContent(statusBar) {
+                StatusBarClock(settings.time, modifier = Modifier.weight(1f))
+                StatusBarIcons()
+            }
+        }
+
+        device.displayCutout?.takeIf { settings.showDisplayCutoutDecoration }?.let { cutout ->
+            DisplayCutoutDecoration(cutout, modifier = Modifier.align(cutout.position.alignment))
         }
     }
 }
@@ -80,8 +96,14 @@ private fun StatusBarIcon(@DrawableRes iconResId: Int, increaseSizeBy: Dp = 0.dp
 
 private fun StatusBarTime.format() = String.format("%02d:%02d", hours, minutes)
 
-private val PaddingStart = 8.dp
-private val PaddingEnd = 4.dp
+private fun Modifier.displayCutoutPadding(cutout: DisplayCutout?) = this.then(
+    when (cutout?.position) {
+        Position.Left -> Modifier.absolutePadding(left = cutout.takenWidth)
+        Position.Right -> Modifier.absolutePadding(right = cutout.takenWidth)
+        else -> Modifier
+    }
+)
+
 private val IconsHorizontalSpace = 1.dp
 private val IconSize = 15.dp
 private val ClockTextStyle = TextStyle(
